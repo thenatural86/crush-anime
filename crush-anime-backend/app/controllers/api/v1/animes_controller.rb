@@ -1,0 +1,34 @@
+class Api::V1::AnimesController < ApplicationController
+  def index
+  animes = Anime.all
+  render json: animes
+  end
+
+  def show
+    anime = Anime.find(params[:id])
+    render json: anime
+  end
+
+  def create
+    anime = Anime.create(anime_params)
+    render json: anime
+  end
+
+  def update
+    anime = Anime.find(params[:id])
+    anime.update(anime_params) 
+    render json: anime
+  end
+
+  # def destroy
+  #   anime = Anime.find(params[:id])
+  #   anime.delete
+  #   render {anime_id: anime.id}
+  # end
+
+
+  private
+  def anime_params
+    params.require(:anime).permit(:title, :main_character, :description, :image_url)
+  end
+end

@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#anime-container {
+  margin: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.anime-card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 20rem;
+  height: 28rem;
+  /* display: inline-grid; */
+  margin: 1rem 2rem;
+  box-shadow: 5px 4px #e04bc4;
+  border-radius: 15px;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  /* justify-self: center; */
+  /* height: 12rem; */
+  /* width: auto; */
+}
+
+.anime-description {
+  height: 25%;
+  margin-bottom: 20px;
+}
+
+.user-card {
+  margin: 10px;
+  padding: 5px;
+  border-style: solid;
+  border-radius: 15px;
+}
+
+#create-anime-form {
+  margin: 10px;
+  padding: 5px;
+  border-style: solid;
+  border-radius: 15px;
+}
