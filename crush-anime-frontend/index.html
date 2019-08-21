@@ -16,21 +16,41 @@
 
     <div id="form-container">
       <form class="add-anime-form" id="create-anime-form">
-        <h3>Add and Anime!</h3>
+        <h3>Add Anime!</h3>
         <input type="text" name="title" value="" placeholder="Title" class="input-text">
         <input type="text" name="main-character" value="" placeholder="Main Character" class="input-text">
         <input type="text" name="description" value="" placeholder="Description" class="input-text">
-        <input type="text" name="image" value="" placeholder="Anime image url" class="input-text">
+        <input type="text" name="image_url" value="" placeholder="Anime image url" class="input-text">
         <input type="submit" name="submit" value="Add a New Anime">
       </form>
     </div>
-
     <div id="user-container"></div>
     <div id="anime-container"></div>
+
+    <div id="popup" class="popup">
+      <div class="popuptext" id="myPopup" data-id="">
+        <form action="PATCH">
+          <h3>Edit Anime!</h3>
+          <input type="text" name="title" value="" placeholder="Title" class="input-text">
+          <input type="text" name="main-character" value="" placeholder="Main Character" class="input-text">
+          <input type="text" name="description" value="" placeholder="Description" class="input-text">
+          <input type="text" name="image_url" value="" placeholder="Anime image url" class="input-text">
+          <input type="submit" class="edit-button" name="submit" id="edit-button" value="Edit your Anime">
+        </form>
+      </div>
+    </div>
+
   </div>
 
 
-
+  <!-- <span class="popuptext" id="myPopup">
+      <h3>Edit Anime!</h3>
+      <input type="text" name="title" value="" placeholder="Title" class="input-text">
+      <input type="text" name="main-character" value="" placeholder="Main Character" class="input-text">
+      <input type="text" name="description" value="" placeholder="Description" class="input-text">
+      <input type="text" name="image_url" value="" placeholder="Anime image url" class="input-text">
+      <input type="submit" name="submit" value="Edit your Anime">
+    </span> -->
 </body>
 
 </html>
