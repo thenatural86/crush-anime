@@ -19,12 +19,18 @@ class Api::V1::AnimesController < ApplicationController
     anime.update(anime_params) 
     render json: anime
   end
-
-  # def destroy
-  #   anime = Anime.find(params[:id])
-  #   anime.delete
-  #   render {anime_id: anime.id}
-  # end
+  
+  def destroy
+    anime = Anime.find(params[:id])
+    UserAnime.all.each do |join|
+      if join.anime_id == anime.id
+        join.delete()
+      end
+    end
+    anime.delete()
+    render json: anime
+    # head 204
+  end
 
 
   private

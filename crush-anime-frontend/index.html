@@ -27,14 +27,16 @@
     <div id="user-container"></div>
     <div id="anime-container"></div>
 
+
     <div id="popup" class="popup">
       <div class="popuptext" id="myPopup" data-id="">
-        <form action="PATCH">
+        <form class="edit-anime-form" action="PATCH">
           <h3>Edit Anime!</h3>
-          <input type="text" name="title" value="" placeholder="Title" class="input-text">
-          <input type="text" name="main-character" value="" placeholder="Main Character" class="input-text">
-          <input type="text" name="description" value="" placeholder="Description" class="input-text">
-          <input type="text" name="image_url" value="" placeholder="Anime image url" class="input-text">
+          <input id="title" type="text" name="title" value="" placeholder="Title" class="input-text">
+          <input id="character" type="text" name="main-character" value="" placeholder="Main Character"
+            class="input-text">
+          <input id="description" type="text" name="description" value="" placeholder="Description" class="input-text">
+          <input id="image" type="text" name="image_url" value="" placeholder="Anime image url" class="input-text">
           <input type="submit" class="edit-button" name="submit" id="edit-button" value="Edit your Anime">
         </form>
       </div>

@@ -1,3 +1,3 @@
 class UserAnimeSerializer < ActiveModel::Serializer
-  attributes :id, :anime_id
+  attributes :user_id, :anime_id,:title
 end
