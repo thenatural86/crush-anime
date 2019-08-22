@@ -30,6 +30,8 @@ h1 {
 .image {
   width: 200px;
   height: 200px;
+  display: flex;
+  margin: auto;
   /* justify-self: center; */
   /* height: 12rem; */
   /* width: auto; */
@@ -45,6 +47,11 @@ h1 {
   padding: 5px;
   border-style: solid;
   border-radius: 15px;
+}
+
+.likes {
+  display: flex;
+  margin: auto;
 }
 
 #create-anime-form {
