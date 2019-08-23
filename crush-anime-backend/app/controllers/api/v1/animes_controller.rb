@@ -15,6 +15,7 @@ class Api::V1::AnimesController < ApplicationController
   end
 
   def update
+    # byebug
     anime = Anime.find(params[:id])
     anime.update(anime_params) 
     render json: anime
@@ -35,6 +36,6 @@ class Api::V1::AnimesController < ApplicationController
 
   private
   def anime_params
-    params.require(:anime).permit(:title, :main_character, :description, :image_url)
+    params.require(:anime).permit(:title, :main_character, :description, :image_url, :likes)
   end
 end

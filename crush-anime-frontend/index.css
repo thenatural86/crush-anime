@@ -8,6 +8,36 @@ h1 {
   text-align: center;
 }
 
+#form-container {
+  margin: 2rem;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  float: left;
+  height: 10rem;
+  width: 57rem
+}
+
+#create-anime-form {
+  margin: 10px;
+  padding: 5px;
+  border-style: solid;
+  border-radius: 15px;
+}
+
+#user-container {
+  margin: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* float: left */
+  /* width: 25rem; */
+  position: relative;
+  left: -80px;
+  /* width: 30rem; */
+}
+
 #anime-container {
   margin: 2rem;
   display: flex;
@@ -20,9 +50,10 @@ h1 {
   border: grey solid 1px;
   padding: 1rem;
   width: 20rem;
-  height: 28rem;
+  height: 31rem;
   /* display: inline-grid; */
   margin: 1rem 2rem;
+
   box-shadow: 5px 4px #e04bc4;
   border-radius: 15px;
 }
@@ -50,16 +81,11 @@ h1 {
 }
 
 .likes {
-  display: flex;
+  /* display: flex; */
   margin: auto;
 }
 
-#create-anime-form {
-  margin: 10px;
-  padding: 5px;
-  border-style: solid;
-  border-radius: 15px;
-}
+
 
 /* Popup container */
 .popup {
