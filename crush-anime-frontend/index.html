@@ -1,52 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Crush</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="index.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Crush</title>
-  <link rel="stylesheet" href="index.css">
-  <script type="text/javascript" src="index.js"></script>
-</head>
-
-<body>
-  <h1> Crush Anime</h1>
-  <div id="main-container">
-
-    <div id="form-container">
-      <form class="add-anime-form" id="create-anime-form">
-        <h3>Add Anime!</h3>
-        <input type="text" name="title" value="" placeholder="Title" class="input-text">
-        <input type="text" name="main-character" value="" placeholder="Main Character" class="input-text">
-        <input type="text" name="description" value="" placeholder="Description" class="input-text">
-        <input type="text" name="image_url" value="" placeholder="Anime image url" class="input-text">
-        <input type="number" name="likes" value="" placeholder="How many likes" class="input-text">
-        <input type="submit" name="submit" value="Add a New Anime">
-      </form>
+  <body>
+    <div id="logo">
+      <h1>Crush Anime</h1>
+      <img
+        id="img"
+        src="http://www.pngmart.com/files/6/Attack-On-Titan-PNG-File-1.png"
+        alt=""
+      />
     </div>
-    <div id="user-container"></div>
-    <div id="anime-container"></div>
 
+    <div id="main-container">
+      <div id="userform-container">
+        <div id="form-container">
+          <form class="add-anime-form" id="create-anime-form">
+            <h3>Add Anime!</h3>
+            <input
+              type="text"
+              name="title"
+              value=""
+              placeholder="Title"
+              class="input-text"
+            />
+            <input
+              type="text"
+              name="main-character"
+              value=""
+              placeholder="Main Character"
+              class="input-text"
+            />
+            <input
+              type="text"
+              name="description"
+              value=""
+              placeholder="Description"
+              class="input-text"
+            />
+            <input
+              type="text"
+              name="image_url"
+              value=""
+              placeholder="Anime image url"
+              class="input-text"
+            />
+            <input
+              type="number"
+              name="likes"
+              value=""
+              placeholder="How many likes"
+              class="input-text"
+            />
+            <input type="submit" name="submit" value="Add a New Anime" />
+          </form>
+        </div>
+        <div id="user-container"></div>
+      </div>
 
-    <div id="popup" class="popup">
-      <div class="popuptext" id="myPopup" data-id="">
-        <form class="edit-anime-form" action="PATCH">
-          <h3>Edit Anime!</h3>
-          <input id="title" type="text" name="title" value="" placeholder="Title" class="input-text">
-          <input id="character" type="text" name="main-character" value="" placeholder="Main Character"
-            class="input-text">
-          <input id="description" type="text" name="description" value="" placeholder="Description" class="input-text">
-          <input id="image" type="text" name="image_url" value="" placeholder="Anime image url" class="input-text">
-          <input type="submit" class="edit-button" name="submit" id="edit-button" value="Edit your Anime">
-        </form>
+      <div id="anime-container"></div>
+
+      <div id="popup" class="popup">
+        <div class="popuptext" id="myPopup" data-id="">
+          <form class="edit-anime-form" action="PATCH">
+            <h3>Edit Anime!</h3>
+            <input
+              id="title"
+              type="text"
+              name="title"
+              value=""
+              placeholder="Title"
+              class="input-text"
+            />
+            <input
+              id="character"
+              type="text"
+              name="main-character"
+              value=""
+              placeholder="Main Character"
+              class="input-text"
+            />
+            <input
+              id="description"
+              type="text"
+              name="description"
+              value=""
+              placeholder="Description"
+              class="input-text"
+            />
+            <input
+              id="image"
+              type="text"
+              name="image_url"
+              value=""
+              placeholder="Anime image url"
+              class="input-text"
+            />
+            <input
+              type="submit"
+              class="edit-button"
+              name="submit"
+              id="edit-button"
+              value="Edit your Anime"
+            />
+          </form>
+        </div>
       </div>
     </div>
 
-  </div>
-
-
-  <!-- <span class="popuptext" id="myPopup">
+    <!-- <span class="popuptext" id="myPopup">
       <h3>Edit Anime!</h3>
       <input type="text" name="title" value="" placeholder="Title" class="input-text">
       <input type="text" name="main-character" value="" placeholder="Main Character" class="input-text">
@@ -54,6 +127,5 @@
       <input type="text" name="image_url" value="" placeholder="Anime image url" class="input-text">
       <input type="submit" name="submit" value="Edit your Anime">
     </span> -->
-</body>
-
+  </body>
 </html>

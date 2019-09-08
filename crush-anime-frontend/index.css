@@ -1,22 +1,44 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #9ddaf3b8
+  /* background-color: #9ddaf3b8 */
+  background: rgb(193, 213, 9);
+  background: linear-gradient(90deg, rgba(193, 213, 9, 1) 0%, rgba(5, 234, 199, 1) 50%, rgba(5, 154, 234, 1) 90%);
 }
 
 h1 {
   text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 5rem;
+
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+}
+
+#img {
+  height: 15em;
+  width: 15em;
+  margin-left: 10vw;
+}
+
+#userform-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
 }
 
 #form-container {
-  margin: 2rem;
-  margin-top: 0px;
+  margin: 0rem;
+  /* margin-top: 0px; */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   float: left;
-  height: 10rem;
-  width: 57rem
+  /* height: 10rem;
+  width: 57rem */
 }
 
 #create-anime-form {
@@ -26,15 +48,19 @@ h1 {
   border-radius: 15px;
 }
 
+#create-anime-form input {
+  background-color: #b8e4f5
+}
+
 #user-container {
-  margin: 2rem;
+  /* margin: 2rem; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   /* float: left */
   /* width: 25rem; */
   position: relative;
-  left: -80px;
+  /* left: -80px; */
   /* width: 30rem; */
 }
 
@@ -43,6 +69,7 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .anime-card {
@@ -53,9 +80,10 @@ h1 {
   height: 31rem;
   /* display: inline-grid; */
   margin: 1rem 2rem;
-
+  background-color: #f3f67ff7;
   box-shadow: 5px 4px #e04bc4;
   border-radius: 15px;
+
 }
 
 .image {
