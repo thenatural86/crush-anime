@@ -11,11 +11,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
   const animeContainer = document.getElementById("anime-container")
   const popUpContainer = document.getElementById("edit-button").parentNode
     .parentNode
+
+  console.log()
   // let likeCount = event.target.parentNode.querySelector(".likes").innerText
 
   mainContainer.addEventListener("submit", function(event) {
     event.preventDefault()
-    // debugger
     if (event.target.className === "add-anime-form") {
       console.log(event.target)
       postAnimeData(event.target)
@@ -23,18 +24,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
   })
 
   mainContainer.addEventListener("click", function(event) {
-    // event.preventDefault()
     if (event.target.className === "update-button") {
-      console.log(event.target.dataset.id)
+      // console.log(event.target.dataset.id)
 
       const popup = document.getElementById("myPopup")
       popup.classList.toggle("show")
       popup.dataset.id = event.target.dataset.id
 
       const title = document.getElementById("title")
-      title.value = `${
-        event.target.parentNode.parentNode.children[0].innerText
-      }`
+      title.value = `${event.target.parentNode.parentNode.children[0].innerText}`
 
       const character = document.getElementById("character")
       character.value = `${
@@ -42,14 +40,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
       }`
 
       const description = document.getElementById("description")
-      description.value = `${
-        event.target.parentNode.parentNode.children[2].innerText
-      }`
+      description.value = `${event.target.parentNode.parentNode.children[2].innerText}`
 
       const image = document.getElementById("image")
-      image.value = `${
-        event.target.parentNode.parentNode.children[3].children[0].src
-      }`
+      image.value = `${event.target.parentNode.parentNode.children[3].children[0].src}`
     } else if (event.target.className === "remove-button") {
       console.log("remove-button")
       deleteAnime(event.target)
@@ -57,18 +51,19 @@ document.addEventListener("DOMContentLoaded", function(e) {
       likeAnime()
     }
   })
+
   popUpContainer.addEventListener("submit", function(event) {
     if (event.target.className === "edit-anime-form") {
       console.log(event.target.className)
       console.log(event.currentTarget.dataset.id)
       let currentAnimeId = event.currentTarget.dataset.id
-      // debugger
       editAnimeData(event.target)
       let popup = document.getElementById("myPopup")
       popup.classList.toggle("show")
       popup.dataset.id = event.target.dataset.id
     }
   })
+
   userContainer.addEventListener("submit", function(event) {
     event.preventDefault()
     console.log(event.target.querySelector("select").value)
@@ -96,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
       })
   })
 
-  // read
   function fetchAnimes() {
     return fetch("http://localhost:3000/api/v1/animes")
       .then(resp => resp.json())
@@ -106,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         data.forEach(renderAnime)
       })
   }
-  // read
+
   function renderAnime(anime) {
     let animeCard
 
@@ -114,23 +108,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
       "beforeend",
       ` <div id="anime-card-${anime.id}"class="anime-card">
         <h3 class="anime-title">${anime.title}</h3>
-        <h4 class="anime-main-character">Main Character: ${
-          anime.main_character
-        }</h4>
+        <h4 class="anime-main-character">Main Character: ${anime.main_character}</h4>
         <p class="anime-description">${anime.description}</p>
         <div class="image-wrapper">
         <img class="image" src="${anime.image_url}" alt="">
         <div class="like-count">Like Count:</div>
         <div class="likes" data-id="${anime.id}">${anime.likes}</div>
-        <input class="like-button" data-id=${
-          anime.id
-        } type="button" value="Like">
-        <input class="update-button" data-id=${
-          anime.id
-        } type="button" value="Update">
-        <input class="remove-button" data-id=${
-          anime.id
-        } type="button" value="Remove">
+        <input class="like-button" data-id=${anime.id} type="button" value="Like">
+        <input class="update-button" data-id=${anime.id} type="button" value="Update">
+        <input class="remove-button" data-id=${anime.id} type="button" value="Remove">
         </div>`
     )
     animeCard = document.getElementById(`anime-card-${anime.id}`)
@@ -145,37 +131,35 @@ document.addEventListener("DOMContentLoaded", function(e) {
       })
   }
   // read
-  function renderUser(user) {
-    const anime_ids = user.user_animes.map(user_anime => user_anime.anime_id)
-    const targetAnimes = anime_ids.map(id =>
-      animes.find(anime => anime.id === id)
-    )
+  // function renderUser(user) {
+  //   const anime_ids = user.user_animes.map(user_anime => user_anime.anime_id)
+  //   const targetAnimes = anime_ids.map(id => {
+  //     return animes.find(anime => anime.id === id)
+  //   })
 
-    let targetAnimeHtml = targetAnimes.map(renderTargetAnime).join("")
+  //   let targetAnimeHtml = targetAnimes.map(renderTargetAnime).join("")
+  //   userContainer.innerHTML = `<div class="user-card">
+  //               <h3 class="user-name">Username: ${user.name}</h3>
+  //               <h4 class="user-favorite-anime">Favorite Anime: ${
+  //                 user.favorite_anime
+  //               }</h4>
+  //             <div class="user-anime-container" data-user-id=${user.id}>
+  //               ${targetAnimeHtml}
+  //             </div>
 
-    userContainer.innerHTML = `<div class="user-card">
-                <h3 class="user-name">Username: ${user.name}</h3>
-                <h4 class="user-favorite-anime">Favorite Anime: ${
-                  user.favorite_anime
-                }</h4>
-              <div class="user-anime-container" data-user-id=${user.id}>
-                ${targetAnimeHtml}
-              </div>
-  
-              <div>
-                <form class="userForm" data-user-id=${user.id}>
-                  <select data-id=${user.id}>
-                  ${animes.map(anime => {
-                    return `<option value=${anime.id}>${anime.title}</option>`
-                  })}
-                  </select>
-                  <button>Add Anime</button>
-                </form>
-              </div>
-  
-            </div>
-            `
-  }
+  //             <div>
+  //               <form class="userForm" data-user-id=${user.id}>
+  //                 <select data-id=${user.id}>
+  //                 ${animes.map(anime => {
+  //                   return `<option value=${anime.id}>${anime.title}</option>`
+  //                 })}
+  //                 </select>
+  //                 <button>Add Anime</button>
+  //               </form>
+  //             </div>
+  //           </div>
+  //           `
+  // }
 
   // create
   function postAnimeData(form) {
@@ -257,24 +241,17 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
   function editRenderAnime() {
     console.log(event)
-    debugger
     let animeCard = document.getElementById(`anime-card-${anime.id}`)
     animeCard.innerHTML = ` 
       <h3 class="anime-title">${anime.title}</h3>
-      <h4 class="anime-main-character">Main Character: ${
-        anime.main_character
-      }</h4>
+      <h4 class="anime-main-character">Main Character: ${anime.main_character}</h4>
       <p class="anime-description">${anime.description}</p>
       <div class="image-wrapper">
       <img class="image" src="${anime.image_url}" alt="">
       <div class="likes">Likes: ${anime.likes}</div>
       <input class="like-button" data-id=${anime.id} type="button" value="Like">
-      <input class="update-button" data-id=${
-        anime.id
-      } type="button" value="Update">
-      <input class="remove-button" data-id=${
-        anime.id
-      } type="button" value="Remove">
+      <input class="update-button" data-id=${anime.id} type="button" value="Update">
+      <input class="remove-button" data-id=${anime.id} type="button" value="Remove">
     `
   }
 
